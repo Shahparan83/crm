@@ -17,5 +17,7 @@ Route::get('dashboard', function () {
 require __DIR__.'/settings.php';
 
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\UserController;
 
 Route::resource('clients', ClientController::class);
+Route::resource('users', UserController::class);
