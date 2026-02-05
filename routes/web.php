@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Laravel\Fortify\Features;
@@ -21,3 +22,5 @@ use App\Http\Controllers\UserController;
 
 Route::resource('clients', ClientController::class);
 Route::resource('users', UserController::class);
+Route::resource('products', ProductController::class);
+Route::resource('products', \App\Http\Controllers\ProductController::class);
