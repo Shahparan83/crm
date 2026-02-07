@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class ProductController extends Controller
 {
@@ -11,12 +12,13 @@ class ProductController extends Controller
     {
         $products = Product::all();
 
-        return view('products.index', compact('products'));
+        return Inertia::render('Products/Index', compact('products'));
     }
 
     public function create()
     {
-        return view('products.create');
+        return Inertia::render('Products/Create');
+
     }
 
     public function store(Request $request)
@@ -40,6 +42,8 @@ class ProductController extends Controller
 
     public function edit(Product $product)
     {
+        return Inertia::render('Products/Edit', compact('product'));
+
         return view('products.edit', compact('product'));
     }
 
