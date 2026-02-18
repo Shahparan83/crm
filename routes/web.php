@@ -22,6 +22,9 @@ use App\Http\Controllers\TaskController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\UserController;
 
+Route::post('/tickets/{ticket}/reply', [TicketController::class, 'reply'])
+    ->name('tickets.reply');
+
 Route::resource('clients', ClientController::class);
 Route::resource('users', UserController::class);
 Route::resource('tickets', TicketController::class);

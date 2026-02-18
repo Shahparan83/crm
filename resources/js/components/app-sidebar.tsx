@@ -1,5 +1,5 @@
 import { Link } from '@inertiajs/react';
-import { BookOpen, Camera, Folder, LayoutGrid, User, Users, PackageSearch } from 'lucide-react';
+import { BookOpen, Folder, LayoutGrid, Users, PackageSearch, Ticket } from 'lucide-react';
 import { NavFooter } from '@/components/nav-footer';
 import { NavMain } from '@/components/nav-main';
 import { NavUser } from '@/components/nav-user';
@@ -16,14 +16,6 @@ import { dashboard } from '@/routes';
 
 import type { NavItem } from '@/types';
 import AppLogo from './app-logo';
-
-
-
-import { DynamicIcon } from 'lucide-react/dynamic';
-
-const App = () => (
-    <DynamicIcon name='camera' color="red" size={48} />
-);
 
 const mainNavItems: NavItem[] = [
     {
@@ -54,7 +46,7 @@ const mainNavItems: NavItem[] = [
     {
         title: 'Tickets',
         href: '/tickets',
-        icon: Folder,
+        icon: Ticket,
     },
 ];
 

@@ -34,6 +34,15 @@ class TicketController extends Controller
         return redirect()->route('tickets.index');
     }
 
+    public function show(Ticket $ticket)
+    {
+        $ticket->load('replies');
+
+        return Inertia::render('Tickets/show', [
+            'ticket' => $ticket,
+        ]);
+    }
+
     public function edit(Ticket $ticket)
     {
         return Inertia::render('Tickets/edit', [
@@ -53,5 +62,18 @@ class TicketController extends Controller
         $ticket->delete();
 
         return redirect()->route('tickets.index');
+    }
+
+    public function reply(Request $request, Ticket $ticket)
+    {
+        $request->validate([
+            'message' => 'required',
+        ]);
+
+        $ticket->replies()->create([
+            'message' => $request->message,
+        ]);
+
+        return back();
     }
 }
